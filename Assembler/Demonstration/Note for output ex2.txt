@@ -1,0 +1,5 @@
+The first 2 numbers represnt;
+
+The first number: the size of the command stack (where the commands are stored)
+
+The second number: the size of the data stack (where the values of the parameters are stored)
