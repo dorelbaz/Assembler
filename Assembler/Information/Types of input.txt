@@ -1,0 +1,37 @@
+
+
+Empty line => It's a line that contains only whitespaces and tabs.
+
+####################################################
+
+
+Comment => It's a line whose first character, that isn't a whitespace or tab, is a ';'. 
+
+
+####################################################
+
+Instruction => It's a line that instructs the assembler on what it is to do with the source code.
+There are several types of instruction lines. An instruction line may allocate memory and initialise the variables of the program, but it does not generate code that is meant to be executed
+during the program's runtime.
+
+
+1. '.dh', '.dw', '.db'
+The parameters of these instruction types are legal, integer numbers (one or more) separated by a single ','. These types instruct the assembler to allocate memory in the data image, where
+the values of the parameters will be stored, and the data counter will increment, depending on the number of entries and according to their size. Any data defined by the type '.db' occupies a single byte. Data defined by the type '.dw' occupies four bytes (a word). Data defined by '.dh' occupies two bytes (half-word).
+
+2. '.asciz'
+Type '.asciz' one parameter, which is a valid string. The string characters are encoded according to the appropriate ascii value, and are inserted into the data image in their order, each character is represented by a single byte. The character '\0', whose ascii value is 0, will be added at the end of the string, marking its end. The assembler's data counter will be incremented according
+to the size of the string (plus one for the terminating character). If in the instruction line, a label has been defined, then this label receives the value of the data counter (before incremention) and is inserted into symbol table.
+
+3. '.entry'
+Type '.entry', has one parameter, which is the name of a label which has been defined in the current source file. The purpose of the .entry is to attribute this label in a way that will allow
+for assembly code found in other source files to use it (as an instruction operand).
+
+4. '.extern'
+Type ".extern" has one parameter, which is the name of a label that is not defined in the file current source file. The instruction is to inform the assembler that the label is defined in another source file, and that the assembly code in the current file will make use of the label.
+
+
+####################################################
+
+
+Command => It's a line that generates code that is meant to be executed during the program's runtime. A command line is composed of the name of the command, that the CPU needs to execute, and its operands.
