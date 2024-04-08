@@ -16,11 +16,11 @@ during the program's runtime.
 
 
 1. '.dh', '.dw', '.db'
-The parameters of these instruction types are legal, integer numbers (one or more) separated by a single ','. These types instruct the assembler to allocate memory in the data image, where
+The parameters of these instruction types are legal, integer numbers (one or more) separated by a single ','. These types instruct the assembler to allocate memory in the data stack, where
 the values of the parameters will be stored, and the data counter will increment, depending on the number of entries and according to their size. Any data defined by the type '.db' occupies a single byte. Data defined by the type '.dw' occupies four bytes (a word). Data defined by '.dh' occupies two bytes (half-word).
 
 2. '.asciz'
-Type '.asciz' one parameter, which is a valid string. The string characters are encoded according to the appropriate ascii value, and are inserted into the data image in their order, each character is represented by a single byte. The character '\0', whose ascii value is 0, will be added at the end of the string, marking its end. The assembler's data counter will be incremented according
+Type '.asciz' one parameter, which is a valid string. The string characters are encoded according to the appropriate ascii value, and are inserted into the data stack in their order, each character is represented by a single byte. The character '\0', whose ascii value is 0, will be added at the end of the string, marking its end. The assembler's data counter will be incremented according
 to the size of the string (plus one for the terminating character). If in the instruction line, a label has been defined, then this label receives the value of the data counter (before incremention) and is inserted into symbol table.
 
 3. '.entry'
